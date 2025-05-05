@@ -20,6 +20,9 @@
 <div class="container-fluid mt-3">
     <c:url value="/departments/listDepartment" var="departmentUrl"/>
     <a href="${departmentUrl}" class="link-primary fs-4">Department</a>
+    &nbsp;|&nbsp;
+    <c:url value="/employees/listEmployee" var="employeeUrl"/>
+    <a href="${employeeUrl}" class="link-primary fs-4">Employee</a>
 </div>
 </body>
 </html>
