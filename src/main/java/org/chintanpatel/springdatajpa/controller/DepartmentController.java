@@ -23,14 +23,14 @@ public class DepartmentController {
     @GetMapping("/departments/listDepartment")
     public String listDepartment(Model model) {
         model.addAttribute("department", new Department());
-        model.addAttribute("departments", departmentService.getAllDepartmentList());
+        model.addAttribute("departmentList", departmentService.getAllDepartmentList());
         return "department-form";
     }
 
     @PostMapping("/departments/insertOrUpdateDepartment")
     public String insertOrUpdateDepartment(@Valid @ModelAttribute("department") Department department, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("departments", departmentService.getAllDepartmentList());
+            model.addAttribute("departmentList", departmentService.getAllDepartmentList());
             return "department-form";
         }
         departmentService.addDepartment(department);
@@ -41,7 +41,7 @@ public class DepartmentController {
     public String manageDepartment(@RequestParam("departmentId") Long departmentId, Model model) {
         if (departmentId != null) {
             model.addAttribute("department", departmentService.getDepartmentById(departmentId));
-            model.addAttribute("departments", departmentService.getAllDepartmentList());
+            model.addAttribute("departmentList", departmentService.getAllDepartmentList());
         }
         return "department-form";
     }
