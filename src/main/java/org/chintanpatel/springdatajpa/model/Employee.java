@@ -1,8 +1,10 @@
 package org.chintanpatel.springdatajpa.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -37,6 +39,7 @@ public class Employee {
     private String[] programmingLanguage;
 
     @NotEmpty(message = "NotEmpty.employee.email")
+    @Email(message = "Email.employee.email")
     @Column(name = "email", nullable = false)
     private String email;
 
@@ -53,6 +56,7 @@ public class Employee {
     @Column(name = "user_name", nullable = false)
     private String userName;
 
+    @Size(min = 8, max = 15, message = "Size.employee.password")
     @NotEmpty(message = "NotEmpty.employee.password")
     @Column(name = "password", nullable = false)
     private String password;
