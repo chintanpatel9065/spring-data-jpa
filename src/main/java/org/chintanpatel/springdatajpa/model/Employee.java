@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.chintanpatel.springdatajpa.validator.ValidDepartment;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -62,6 +63,7 @@ public class Employee {
     private String password;
 
     @ManyToOne
+    @ValidDepartment
     @JoinColumn(name = "department_id", nullable = false)
     private Department department;
 
